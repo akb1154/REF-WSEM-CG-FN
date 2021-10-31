@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class MPNIM_Server {
 	
@@ -73,7 +74,7 @@ public class MPNIM_Server {
 		}
 	}
 
-	private MPNIM_Client init_pl0 (boolean isOnServerThread, String IP) throws IOException {
+	private Socket init_pl0 (boolean isOnServerThread, String IP) throws IOException {
 		if (!isOnServerThread)
 			player0 = serverSocket.accept();
 		else 
