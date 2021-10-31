@@ -10,7 +10,7 @@ public class MPNIM_Server {
 	public static final int GAME_PORT = 14913; 
 	
 	private ServerSocket serverSocket;
-	private MPNIM_Client player0, player1;
+	private Socket player0, player1;
 	private PrintStream p0ps, p1ps;
 	private BufferedReader p0br, p1br;
 	private int Marbles;
@@ -20,7 +20,7 @@ public class MPNIM_Server {
 		serverSocket = new ServerSocket (GAME_PORT, 2, InetAddress.getByName(IP));
 		this.Marbles = 0b01000000; // = 0x40 && 0d??
 		this.player0 = init_pl0(player0onServerThread, IP);
-		this.player1 = (MPNIM_Client) serverSocket.accept();
+		this.player1 = serverSocket.accept();
 		this.p0ps = new PrintStream (player0.getOutputStream());
 		this.p1ps = new PrintStream (player1.getOutputStream());
 		this.p0br = new BufferedReader (new java.io.InputStreamReader (player0.getInputStream()));
@@ -75,7 +75,7 @@ public class MPNIM_Server {
 
 	private MPNIM_Client init_pl0 (boolean isOnServerThread, String IP) throws IOException {
 		if (!isOnServerThread)
-			player0 = (MPNIM_Client) serverSocket.accept();
+			player0 = serverSocket.accept();
 		else 
 			player0 = new MPNIM_Client(IP);
 		
