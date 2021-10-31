@@ -2,7 +2,6 @@ package com.akb.sig.mpnim;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -18,7 +17,7 @@ public class MPNIM_Server {
 
 
 	public MPNIM_Server (String IP, boolean player0onServerThread) throws Exception {
-		serverSocket = new ServerSocket (GAME_PORT, 2, InetAddress.getByName(IP));
+		serverSocket = new ServerSocket (GAME_PORT, 2);
 		this.Marbles = 0b01000000; // = 0x40 && 0d??
 		this.player0 = init_pl0(player0onServerThread, IP);
 		this.player1 = serverSocket.accept();
