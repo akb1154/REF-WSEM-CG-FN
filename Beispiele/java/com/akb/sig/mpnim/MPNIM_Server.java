@@ -50,6 +50,7 @@ public class MPNIM_Server {
 			readIn = p1br.readLine();
 		}
 
+		System.err.println(readIn);
 		Marbles -= Integer.parseInt(readIn) % 4;
 		return Marbles;
 	}

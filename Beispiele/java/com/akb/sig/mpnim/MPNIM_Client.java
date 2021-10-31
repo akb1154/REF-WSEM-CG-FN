@@ -33,7 +33,9 @@ public class MPNIM_Client extends Socket implements Runnable {
 		String readIn = "";
 		int check;
 		while (super.isConnected()) {
+			System.err.println("CONNECTED");
 			try {
+				System.err.println("CON? "+super.isConnected());
 				readIn = br.readLine();
 				while (readIn == null) {
 					br = new BufferedReader (new java.io.InputStreamReader(super.getInputStream()));
