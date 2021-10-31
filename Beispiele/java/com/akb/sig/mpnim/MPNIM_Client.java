@@ -32,13 +32,18 @@ public class MPNIM_Client extends Socket implements Runnable {
 		// GameLoop
 		String readIn = "";
 		int check;
-		while (true) {
+		while (super.isConnected()) {
 			try {
 				readIn = br.readLine();
+				while (readIn == null) {
+					br = new BufferedReader (new java.io.InputStreamReader(super.getInputStream()));
+					readIn = br.readLine();
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			System.out.println(readIn);
 			if (readIn.matches("current Marbles:.*"))
 				System.out.printf ("How many Marbles would you like to take? [1~3]:\n$ ");
