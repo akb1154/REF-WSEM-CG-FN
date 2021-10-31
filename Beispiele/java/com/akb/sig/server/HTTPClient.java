@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
-import java.util.HashMap;
 
 public class HTTPClient extends Thread{
 
@@ -53,6 +52,7 @@ public class HTTPClient extends Thread{
 					tmpvar0 += tmpvar1;
 					tmpvar1 = bfr.readLine();
 				}
+				bfr.close();
 				File = tmpvar0;
 			} catch (FileNotFoundException e) {
 				statusCode = 404;
