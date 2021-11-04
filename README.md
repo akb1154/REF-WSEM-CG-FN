@@ -21,7 +21,7 @@ Dateiendung | Sprache
  py         | Python
  htm, html  | Hypertext markup languange (HTML)
  md         | markdown
- sh, bash   | bash (.bat ist das Windows-äquivalent)
+ sh, bash   | bash (Linux äquivalent zu .bat)
  bat        | batch; Anweisungen an die Befehlszeile (Win+X)
  gitignore  | git; durch GitHub benötigt
  
