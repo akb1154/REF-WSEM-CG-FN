@@ -1,4 +1,7 @@
 /.ignore/
 /bin/
+/.vscode/
+/.settings/
 .classpath
+.project
 .project

@@ -8,7 +8,7 @@ public class HTTPServer {
 
 	public static final int HTTP_Standard = 80, Workaround = 442;
 	
-	protected static final String HttpRoot = "/home/akb1152/.http";
+	protected static final String HttpRoot = "~/.http";
 	private ServerSocket server;
 	
 	public static void main (String[] args) throws Exception {

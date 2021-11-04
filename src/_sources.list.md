@@ -7,4 +7,9 @@
 ## Dateien: 
 - ./src/IETF_RFC147.pdf: [IETF-Datatracker](https://datatracker.ietf.org/doc/rfc147/)
 - ./src/C_Sockets_CS_Colostate.pdf: [cs.colostate.edu](https://www.cs.colostate.edu/~gersch/cs457/CS457_tutorial1.pdf)
-- ./Beispiele/Client.cs: [www.geeksforgeeks.org](https://www.geeksforgeeks.org/socket-programming-in-c-sharp/)
+
+### in ./Beispiele 
+- Client.cs: [www.geeksforgeeks.org](https://www.geeksforgeeks.org/socket-programming-in-c-sharp/)
+- Client.cpp: [www.educba.com](https://www.educba.com/socket-programming-in-c-plus-plus/)
+- Client.js: [cs.lmu.edu](https://cs.lmu.edu/~ray/notes/jsnetexamples/)
+- Client.py: [www.geeksforgeeks.org](https://www.geeksforgeeks.org/sockets-python/)

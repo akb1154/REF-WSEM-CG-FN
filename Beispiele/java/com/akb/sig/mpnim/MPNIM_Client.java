@@ -1,67 +1,52 @@
 package com.akb.sig.mpnim;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class MPNIM_Client extends Socket implements Runnable {
 
-	private BufferedReader br;
-	private PrintStream ps;
-	private Scanner user;
+	private Scanner server, user;
+	private PrintStream pStream; 
 
-	public static void main(String[] args) throws Exception {
-		MPNIM_Client mpnim_Client = new MPNIM_Client (args[0]);	
-		mpnim_Client.close();
+	public MPNIM_Client(String IP) throws IOException {
+		super(InetAddress.getByName(IP), 14913);
+		for(int cntr=0; !super.isConnected(); cntr++)
+			if (cntr >= 5) {
+				System.err.printf("[ERROR]: Failed to connect to %s:14913! please confirm that: \nMPNIM_Server is running on the Device you are trying to connect to and that \nPort 14913 (tcp) is allowed on your firewall and Router!", IP);
+				System.exit(-1);
+			}
+			else 
+				super.connect(new InetSocketAddress(InetAddress.getByName(IP), 14913));
+
+		System.out.printf("Connected to %s:14913", IP);
+		if (Thread.currentThread().getName().toLowerCase() == "server")
+			new Thread (this, "player").start();
+
 	}
 
-	public MPNIM_Client (String IP) throws IOException {
-		super (IP, MPNIM_Server.GAME_PORT);
-		br = new BufferedReader (new java.io.InputStreamReader(super.getInputStream()));
-		ps = new PrintStream (super.getOutputStream());
-		user = new Scanner (System.in);
-
-		new Thread (this, "Client").start();
-		// -> siehe Parallel-Funktionale Programmierung || 12inf1.2_Kommunikation_und_Synchronisation_von_Prozessen
-	}	
-
-
-	@Override 
-	public void run () {
-		// GameLoop
-		String readIn = "";
-		int check;
-		while (super.isConnected()) {
-			System.err.println("CONNECTED");
-			try {
-				System.err.println("CON? "+super.isConnected());
-				readIn = br.readLine();
-				while (readIn == null) {
-					br = new BufferedReader (new java.io.InputStreamReader(super.getInputStream()));
-					readIn = br.readLine();
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	@Override
+	public void run() {
+		try {
+			server = new Scanner (super.getInputStream());
+			pStream = new PrintStream(super.getOutputStream());
+			user = new Scanner(System.in);	
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-293);
+		}
+		
+		String readin, reply;
+		while (super.isConnected()){
+			readin = server.nextLine().replace("/n", "\n");
+			System.out.print(readin);
+			if (readin.contains ("$ ")) {
+				reply = user.nextLine();
+				pStream.println(reply);
 			}
-			
-			System.out.println(readIn);
-			if (readIn.matches("current Marbles:.*"))
-				System.out.printf ("How many Marbles would you like to take? [1~3]:\n$ ");
-			else if (readIn.matches("player . won!"))
-				System.exit(0);
-			else if (readIn.matches("you are player .*"))
-				continue;
-
-			//check for non-Digit chars
-			readIn = user.nextLine();
-			if (readIn.matches (".*\\D.*"))
-				check = new java.util.Random().nextInt(3)+1;
-			else
-				check = Integer.parseInt (readIn);
-			if (check > 0)
-				ps.println (check);
+			else continue;
 		}
 	}
 }
