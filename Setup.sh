@@ -6,7 +6,7 @@ main (){
     isErr=$?;
     clear;
     echo "$isErr";
-    sudo apt install npm npm-*; 
+    sudo apt install npm npm-* gcc-9 mono-complete ; 
     sudo npm cache clean -f; 
     sudo npm install -g n;
     sudo n latest; 
