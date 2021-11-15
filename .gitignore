@@ -1,7 +1,7 @@
-/.ignore/
-/bin/
-/.vscode/
-/.settings/
+.ignore/
+bin/
+.vscode/
+.settings/
 .classpath
 .project
 .project

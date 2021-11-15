@@ -2,7 +2,7 @@
 
 main (){
     mkdir ~/.http;
-    cp ./Beispiele/index.html ~/.http/index.html;
+    cp ../Beispiele/index.html ~/.http/index.html;
     isErr=$?;
     clear;
     echo "$isErr";

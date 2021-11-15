@@ -11,6 +11,16 @@ public class MPNIM_Client extends Socket implements Runnable {
 	private Scanner server, user;
 	private PrintStream pStream; 
 
+	@SuppressWarnings("resource")
+	public static void main (String[] args) {
+		try {
+			new MPNIM_Client(args[0]);
+		} catch (Exception e) {
+			System.out.println("-> Syntax: $ java -jar MPNIMClient.jar <ServerIP>");
+			e.printStackTrace();
+		}
+	}
+	
 	public MPNIM_Client(String IP) throws IOException {
 		super(InetAddress.getByName(IP), 14913);
 		for(int cntr=0; !super.isConnected(); cntr++)
