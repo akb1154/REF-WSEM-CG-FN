@@ -25,3 +25,13 @@ Dateiendung | Sprache
  bat        | batch; Anweisungen an die Befehlszeile (Win+X)
  gitignore  | git; durch GitHub benötigt
  
+## ./presentation/
+- ./img/ : Bilder die in der Presentation genutzt wurden
+- presentation.odp: Quelltext im odp format für die Präsentation 
+- presentation.pdf: presentation in Pdf
+
+## ./jars
+ausführbare java-program dateien (bitte über Befehlseingabe* ausführen)
+
+## ./src
+- _sources.list.md: quellenangabe
