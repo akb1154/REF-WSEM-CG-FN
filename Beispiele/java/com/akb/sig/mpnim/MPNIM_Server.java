@@ -17,12 +17,12 @@ public class MPNIM_Server {
 	private BufferedReader pl0r, pl1r;
 	private PrintStream pl0p, pl1p;
 	
-	public MPNIM_Server (boolean isPlayer0onServerThread) throws IOException {
-		if (isPlayer0onServerThread)
+	public MPNIM_Server (boolean isPlayer0onServerProcess) throws IOException {
+		if (isPlayer0onServerProcess)
 			Thread.currentThread().setName("server");		
 		
 		socket = new ServerSocket (GAME_PORT, 2, InetAddress.getByName(IP));
-		player0 = (isPlayer0onServerThread)? new MPNIM_Client (IP) : socket.accept();
+		player0 = (isPlayer0onServerProcess)? new MPNIM_Client (IP) : socket.accept();
 		player1 = socket.accept();
 		pl0r = new BufferedReader ( new java.io.InputStreamReader(player0.getInputStream(), "utf-8"));
 		pl1r = new BufferedReader ( new java.io.InputStreamReader(player1.getInputStream(), "utf-8"));

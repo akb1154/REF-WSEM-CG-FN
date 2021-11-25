@@ -4,7 +4,7 @@
         <title>🈷</title>
     </head>
     <body style="background-color: #131313; color: #ffffff">
-        <style>
+        <style id="index_style">
             div {
                 border: 0px;
                 height: auto;
@@ -20,7 +20,14 @@
                 color:rgba(135, 135, 153, 0.75); 
             }
         </style>
-
+        <script type="text/javascript">
+            var style = document.getElementById("index_style"); 
+            style.innerText.replace(
+                "font-family: 'Ubuntu Thin', 'Ubuntu', monospace;",
+                ((navigator.appVersion.toLowerCase().indexOf("win") != -1))?
+                 "font-family: 'Cascadia Code', 'Cascadia', monospace;" :
+                 "font-family: 'Ubuntu Thin', 'Ubuntu', monospace;");
+        </script>
         <div>
             <h1>SUCCESS!</h1><br>
             <i>This means it works</i>

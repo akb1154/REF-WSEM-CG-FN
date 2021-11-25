@@ -2,8 +2,6 @@
 import socket	
 
 port = 442
-
-# initializing socket
 s = socket.socket()	
 host = "127.0.0.1"
 s.connect((host, port))
