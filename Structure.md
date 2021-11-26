@@ -89,7 +89,7 @@ java.util.Scanner
   "langs":[
     "ALGOL-68" {
       "influenced": ["C", "C++", "Python", "Java", "JS", "C#"],
-      "appeared": 1986;
+      "appeared": 1968;
     },
     "C" {
       "influenced": ["C++", "Python", "Java", "JS", "C#"],
