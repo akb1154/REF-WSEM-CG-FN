@@ -1,0 +1,6 @@
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at com.akb.sig.server.HTTPClient.GET(HTTPClient.java:59)
+	at com.akb.sig.server.HTTPClient.<init>(HTTPClient.java:36)
+	at com.akb.sig.server.HTTPServer.<init>(HTTPServer.java:17)
+	at com.akb.sig.server.HTTPServer.main(HTTPServer.java:24)

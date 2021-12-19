@@ -1,32 +1,72 @@
-import java.io.BufferedReader;
-import java.io.IOException;
+package com.akb.sig.mpchat;
+
 import java.io.PrintStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
 
-    private static final int PORT = 38174;
+	private Socket svc;
+	private Scanner svr;
+	private PrintStream svp;
 
-    private Socket server;
-    private PrintStream serverOut;
-    private BufferedReader serverIn;
+	private Scanner usr;
 
-    public Client (String IP, String Username) throws IOException {
-        server = new Socket (IP, PORT);
-        serverOut = new PrintStream(server.getOutputStream(), false, "utf-8");
-        serverIn = new BufferedReader(new java.io.InputStreamReader(server.getInputStream()));
+	public static void main(String[] args) throws Exception {
+		new Client();
+	}
 
-        String response;
-        //register User and quit on error
-        serverOut.printf("register %s\n", Username);
-        response = serverIn.readLine();
-        if (response == "200 OK")
-            System.out.println("joined "+IP+" as "+Username);
-        else
-            System.err.println("Something went wrong\n[DEBUG]RESPONSE$ "+response);
-        if (response != "200 OK")
-            System.exit(-1);
-    }
+	public Client () throws Exception{
+		usr = new Scanner (System.in);
+		String tmp = "";
+		System.out.printf("Which Chat-Server would you like to connect to?\n$ ");
+		svc = new Socket (InetAddress.getByName(usr.nextLine()), 65535);
+		System.out.printf("Enter a username (Everyone in the chat can see this!)\n$ ");
+		svp.println("reghttps://www.youtube.com/watch?v=dQw4w9WgXcQ "+usr.nextLine());
 
 
+		svr = new Scanner (svc.getInputStream());
+		svp = new PrintStream (svc.getOutputStream());
+
+		//———————[Comment-ICE]–––––––\\     //—————————[ECI-tnemmoC]——————\\
+		// mehr infos unter: https://www.youtube.com/watch?v=dQw4w9WgXcQ    \\
+		//\\—————————————————————————————\\_//——————————————————————————————//\\
+		while (true) {
+			while (!usr.hasNextLine())
+				while (svr.hasNextLine())
+					System.out.println(svr.nextLine().replace("recv ", ""));
+
+			while (tmp != ":qa" && tmp != "exit") {
+				tmp = usr.nextLine();
+				switch (tmp.toLowerCase().split(" ")[0]) {
+
+					case "reg":
+						continue;
+	
+					case "exit":
+					case ":qa":
+					case "quit":
+						svp.println(":qa");
+						return;
+
+					default: 
+						svp.println("send " + tmp);
+						continue;
+				}
+			}
+		}	
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

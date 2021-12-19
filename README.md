@@ -31,7 +31,14 @@ Dateiendung | Sprache
 - presentation.pdf: presentation in Pdf
 
 ## ./jars
-ausführbare java-program dateien (bitte über Befehlseingabe* ausführen)
+ausführbare java-program dateien (bitte über Befehlseingabe ausführen)
+
+> Ausgangsordner REF-WSEM-CG-FN/
+
+```
+cd ./jars/;
+java -jar <name der Jar>.jar <argumente mit leerzeichen seperiert>
+```
 
 ## ./src
 - _sources.list.md: quellenangabe
