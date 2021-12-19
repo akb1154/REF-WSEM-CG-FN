@@ -9,6 +9,7 @@
 [C# (C-Sharp) Logo](https://iconape.com/c-sharp-c-logo-logo-icon-svg-png.html)
 [JavaScript (JS) Logo](https://commons.wikimedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg)
 [Python Logo](https://en.wikipedia.org/wiki/File:Python-logo-notext.svg#/media/File:Python_logo_and_wordmark.svg)
+[Minimales Benutzersymbol](https://www.onlinewebfonts.com/icon/210318) 
 [C++ Logo](https://en.wikipedia.org/wiki/C%2B%2B#/media/File:ISO_C++_Logo.svg)
 
 ## Informationen
