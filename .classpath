@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Beispiele/java"/>
+	<classpathentry kind="src" path=".ignore"/>
+	<classpathentry kind="lib" path="Beispiele/java/libs/json-20211205.jar" sourcepath="Beispiele/java/libs/json-20211205-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/REF-WSEM-CG-FN/Beispiele/java/libs/json-20211205-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
